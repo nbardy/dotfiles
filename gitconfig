@@ -1,0 +1,11 @@
+[user]
+	email = nicholasbardy@gmail.com
+	name = Nicholas Bardy
+
+[color]
+  ui = auto
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red

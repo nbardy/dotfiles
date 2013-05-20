@@ -2,6 +2,8 @@ execute pathogen#infect()
 
 set encoding=utf-8
 
+let g:solarized_termtrans=1
+
 "map escape key
 imap jj <Esc>
 

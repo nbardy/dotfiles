@@ -1,11 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/nicholas/Dropbox/Code/Barstream/rails-backend/app/views/bars'
-let g:netrw_dirhist_2='/home/nicholas/.rvm/gems/ruby-2.0.0-preview2/gems/rspec-core-2.13.1/lib/rspec/core'
-let g:netrw_dirhist_3='/home/nicholas/Dropbox/Code/Barstream/rails-backend'
-let g:netrw_dirhist_4='/home/nicholas/Dropbox/Code/Barstream/rails-backend/app/assets/stylesheets'
-let g:netrw_dirhist_5='/home/nicholas/Dropbox/Code/Barstream/rails-backend/app/views'
-let g:netrw_dirhist_6='/home/nicholas/Dropbox/Code/Barstream/rails-backend/app'
-let g:netrw_dirhist_7='/home/nicholas/Dropbox/Code/Barstream/phone-gap-app/src'
-let g:netrw_dirhist_8='/home/nicholas/Dropbox/Code/Barstream/phone-gap-app/tests/integration'
-let g:netrw_dirhist_9='/home/nicholas/Dropbox/Code/Barstream/phone-gap-app/tests'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/nicholas/Dropbox/Code/Barstream/phone-gap-app/test'
+let g:netrw_dirhist_2='/home/nicholas/Dropbox/Code/Barstream/phone-gap-app/.git'
+let g:netrw_dirhist_3='/home/nicholas/.config/awesome'
+let g:netrw_dirhist_4='/home/nicholas/git/dotfiles/awesome'

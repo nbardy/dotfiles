@@ -6,15 +6,22 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+
+# chromium shortcuts
 alias ch='nohup chromium &'
 alias ci='nohup chromium --incognito &'
 alias ck='killall chromium;killall chromium-sandbox; nohup chromium --disable-web-security &'
+
+# Vim mispellings
 alias vi='vim'
 alias vmi='vim'
 alias im='vim'
-alias pi='sudo pacman -S'
-alias restart='sudo shutdown -h 0'
 
+# pacman 
+alias pi='sudo pacman -S'
+alias shutdown='sudo shutdown -h 0'
+
+# git shortcuts
 alias ga='git commit -am'
 alias gm='git commit -m'
 alias gs='git status'
@@ -22,18 +29,15 @@ alias gs='git status'
 alias hu='git push heroku master'
 
 PS1='[\u@\h \W]\$ '
+EDITOR=vim
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+# Simple static file server
 alias ss='python3 -m http.server 8000'
-alias shutdown='sudo shutdown -h 0'
-alias tit='titanium build --platform mobileweb'
 
-# Add sencha to path
-export PATH=/home/nicholas/bin/Sencha/Cmd/3.0.2.288:$PATH
-export SENCHA_CMD_3_0_0="/home/nicholas/bin/Sencha/Cmd/3.0.2.288"
 
 # Add grunt completion
 source ~/.grunt.bash
