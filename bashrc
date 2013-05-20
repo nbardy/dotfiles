@@ -26,7 +26,8 @@ alias ga='git commit -am'
 alias gm='git commit -m'
 alias gs='git status'
 
-alias hu='git push heroku master'
+alias gpo='git push origin master'
+alias gph='git push heroku master'
 
 PS1='[\u@\h \W]\$ '
 EDITOR=vim
