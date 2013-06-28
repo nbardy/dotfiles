@@ -5,7 +5,6 @@
 Xft.dpi:                    96
 Xft.antialias:              true
 Xft.hint:                   false
-
 Xft.rgba:                   rgb
  
 !-------------------------------------------------------------------------------
@@ -13,8 +12,7 @@ Xft.rgba:                   rgb
 ! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
 ! More info at:
 ! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!-------------------------------------------------------------------------------
- 
+!------------------------------------------------------------------------------- 
 URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
@@ -26,8 +24,8 @@ URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           true
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Inconsolata:pixelsize=15
-URxvt*Boldfont: xft:Inconsolata:pixelsize=15
+URxvt*font: xft:Inconsolata:pixelsize=16
+URxvt*Boldfont: xft:Inconsolata:pixelsize=16
  
 ! Fix font space
 URxvt*letterSpace: 0
@@ -45,7 +43,7 @@ URxvt.pointerBlank:         true
  
 !!Source http://github.com/altercation/solarized
  
-*background: [85]#002b36
+*background: #002b36
 *foreground: #657b83
 
 URxvt.depth: 32
@@ -91,5 +89,3 @@ URxvt.depth: 32
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,tabbed
 URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
-
-

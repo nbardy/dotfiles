@@ -145,7 +145,7 @@ set smartcase
 set hlsearch
 
 "un-highlight search
-nmap <Leader>s :nohlsearch<CR>
+nmap <Leader>s :nohlsearch<cr>
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -211,20 +211,21 @@ nmap <Leader>W :wq<cr>
 "Moves a line above the line above it([m]ove [u]p)
 nmap <Leader>mu ddkP
 "Moves a line above the line above it([m]ove [d]own)
-nmap <Leader>md ddp
+nmap <Leader>md ddpk
 
 "for vim-rails
 map <Leader>sm :RSmodel<cr>
-
+map <Leader>om :REmodel<cr>
 
 map <Leader>vv :RVview 
 map <Leader>sv :RSview 
-map <Leader>ov :RSview 
+map <Leader>ov :REview 
 
 map <Leader>vc :RVcontroller<cr>
-map <Leader>vt :RVunittest<cr>
-
 map <Leader>sc :RScontroller<cr>
+map <Leader>oc :REcontroller<cr>
+
+map <Leader>vt :RVunittest<cr>
 map <Leader>st :RSunittest<CR>
 
 "For creating lines

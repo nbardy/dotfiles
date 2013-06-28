@@ -1,6 +1,7 @@
 {
    "bitwise"    : true,
    "curly"      : true,
+   "laxcomma"   : true,
 
    "asi"        : true,
    "devel"      : true,

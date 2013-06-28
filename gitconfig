@@ -9,3 +9,6 @@
 	added = green
 	changed = yellow
 	untracked = red
+
+[alias]
+  undo-commit = reset --soft HEAD^
