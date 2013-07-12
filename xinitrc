@@ -25,4 +25,6 @@ feh --randomize ~/Dropbox/Media/Wallpapers --bg-center
 xcompmgr &
 sudo ~/.dropbox-dist/dropboxd &
 
+nm-applet --sm-disable &
+
 exec awesome

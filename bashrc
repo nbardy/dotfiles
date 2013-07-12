@@ -37,6 +37,8 @@ alias gca='git commit -a'
 alias gcm='git commit -m'
 alias gs='git status'
 alias gb='git branch'
+# git new gbranch
+alias gnb='git checkout -b'
 
 alias gpo='git push origin master'
 alias gph='git push heroku master'
