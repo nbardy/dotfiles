@@ -43,12 +43,15 @@ alias gnb='git checkout -b'
 alias gpo='git push origin master'
 alias gph='git push heroku master'
 
+
+
 PS1='[\u@\h \W]\$ '
 EDITOR=vim
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 PATH=$PATH:~/bin
+PATH=$PATH:/opt/minizinc-1.6/bin
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -71,3 +74,9 @@ for f in $(command ls ~/.node-completion); do
   test -f "$f" && . "$f"
 done
 # }}}
+
+alias lr='lein repl'
+
+GENYMOTION_APP="/usr/bin/genymotion"
+GENYMOTION_SHELL="/usr/bin/genymotion-shell"
+

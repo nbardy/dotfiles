@@ -2,7 +2,6 @@
 ! Xft settings
 !-------------------------------------------------------------------------------
  
-Xft.dpi:                    96
 Xft.antialias:              true
 Xft.hint:                   false
 Xft.rgba:                   rgb
@@ -17,18 +16,18 @@ URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
-URxvt.saveLines:            200
+URxvt.saveLines:            20000
 URxvt.internalBorder:       0
 URxvt.lineSpace:            0
  
 ! Fonts
 URxvt.allow_bold:           true
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Inconsolata:pixelsize=16
-URxvt*Boldfont: xft:Inconsolata:pixelsize=16
+URxvt*font: xft:Inconsolata:pixelsize=14
+URxvt*Boldfont: xft:Inconsolata:pixelsize=14
  
 ! Fix font space
-URxvt*letterSpace: 0
+URxvt*letterSpace: -1
  
 ! Scrollbar
 URxvt.scrollBar:            false
