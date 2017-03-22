@@ -1,5 +1,4 @@
 -- Standard awesome library
-local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
@@ -47,7 +46,7 @@ terminal = "urxvt -pe tabbed"
 --terminal= "konsole"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
-browser = "chromium"
+browser = "google-chrome"
 
 
 -- Default modkey.
@@ -216,6 +215,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
 
+    -- bind PrintScrn to capture a screen
+awful.key({ }, "Print", function()
+        awful.util.spawn_with_shell("scrot --focused --exec 'mv $f ~/Pictures/screenshots/'")
+          end),
+
+
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -229,11 +234,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
-    awful.key({ }, "#122", function () 
+    awful.key({"Control"}, "-", function () 
       awful.util.spawn("amixer set Master 4%-")
       volume.update()
     end),
-    awful.key({ }, "#123", function ()
+    awful.key({"Control"}, "=", function ()
       awful.util.spawn("amixer set Master 4%+")
       volume.update()
     end),

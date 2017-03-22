@@ -1,5 +1,17 @@
 [user]
-	name = Nicholas Bardy
 	email = nicholasbardy@gmail.com
+	name = Nicholas Bardy
+
+[color]
+  ui = auto
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+
+[alias]
+  undo-commit = reset --soft HEAD^
 [core]
 	excludesfile = /home/nicholas/.gitignore
+	editor = vim

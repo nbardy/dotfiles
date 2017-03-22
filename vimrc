@@ -1,8 +1,54 @@
-execute pathogen#infect()
+set nocompatible
+set t_Co=16
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+ call vundle#begin()
+ Plugin 'VundleVim/Vundle.vim'
+
+ " Genereal
+ Plugin 'ctrlpvim/ctrlp.vim'
+ Plugin 'Shougo/deoplete.nvim'
+ " Plugin 'vim-airline/vim-airline'
+
+ " Commands
+ Plugin 'tpope/vim-commentary'
+ Plugin 'tpope/vim-surround'
+ Plugin 'tpope/vim-repeat'
+ Plugin 'tommcdo/vim-lion'
+
+ " Clojure
+ Plugin 'tpope/vim-fireplace'
+ Plugin 'kien/rainbow_parentheses.vim'
+ Plugin 'guns/vim-clojure-highlight'
+
+ " Javascript
+ Plugin 'mxw/vim-jsx'
+ Plugin 'pangloss/vim-javascript'
+ 
+ " Color
+ Plugin 'altercation/vim-colors-solarized'
+ Plugin 'scrooloose/nerdtree'
+
+call vundle#end()
+
+filetype plugin indent on
+
+syntax enable
+set background=dark
 
 set encoding=utf-8
 
-let g:solarized_termtrans=1
+set relativenumber
+set nu
+
+set undofile
+set undodir=~/.vim/undo
+set undolevels=1000
+set undoreload=10000
+
+set background=dark
+colorscheme solarized
 
 "map escape key
 imap jj <Esc>
@@ -10,24 +56,17 @@ imap jj <Esc>
 nmap j gj
 nmap k gk
 
-syntax on
-
-set nocompatible
-
-set relativenumber
-
-filetype plugin indent on " Enable filetype-specific indenting and plugins
-
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
 set showmatch
 set hlsearch
+set autoread
 
-"Fixes a bug with the terminal where Esc followed by shift O is slow
-set timeout timeoutlen=5000 ttimeoutlen=100
-set modelines=0
+" "f ixes a bug with the terminal where Esc followed by shift O is slow
+" set timeout timeoutlen=5000 ttimeoutlen=100
+" set modelines=0
 
 "set auto complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -42,11 +81,6 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
-"""CoffeeSript
-compiler coffee
-" This line compiles all .coffee files
-au BufWritePost *.coffee silent CoffeeMake! | cwindow | redraw!
-
 """Support for RABL ruby json templating
 au BufRead,BufNewFile *.rabl setf ruby
 
@@ -57,25 +91,15 @@ au BufRead,BufNewFile *.rabl setf ruby
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-syntax enable
-set background=dark
-colorscheme solarized
-
-set clipboard=unnamed
-
-set undofile
-set undodir=~/.vim/undo
-set undolevels=1000
-set undoreload=10000
-
 set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+set autoindent
+set smartindent
 autocmd FileType markdown set shiftwidth=4 tabstop=4
 autocmd FileType c set cindent
 
+
 set modeline
 
-set si "Smart indent
-set ai "Auto indent
 set wrap "Wrap lines
 
 "set mouse=a
@@ -116,18 +140,18 @@ let vimrplugin_screenplugin = 0
 
 "neocomplete
 " Launches neocomplcache automatically on vim startup.
-let g:neocomplcache_enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+let g:deoplete#enable_smart_case = 1
 " Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
+let g:deoplete#enable_camel_case_completion = 1
 " Use underscore completion.
-let g:neocomplcache_enable_underbar_completion = 1
+let g:deoplete#enable_underbar_completion = 1
 " buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder 
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:deoplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Sets minimum char length of syntax keyword.
-let g:neocomplcache_min_syntax_length = 3
+let g:deoplete#min_syntax_length = 3
 
 " <TAB>; completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -150,7 +174,6 @@ nmap <Leader>s :nohlsearch<cr>
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadChevrons
 au Syntax * RainbowParenthesesLoadSquare
 
 
@@ -241,3 +264,9 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 set wildignore+=*/.git/*,*/.hg/*,*/node_modules/*
+set noswapfile
+
+let g:jsx_ext_required = 0
+
+"Shortcut for piggieback/firepalce with figwheel
+command PiggieFig Piggieback (figwheel-sidecar.repl-api/repl-env)

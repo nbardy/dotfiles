@@ -23,6 +23,8 @@ alias grep='grep --color=auto'
 # Allow mkdir to spawn parent directories
 alias mkdir='mkdir -pv'
 
+# Alias NeoVim
+alias vim='nvim'
 # Vim mispellings
 alias vi='vim'
 alias vmi='vim'
@@ -80,3 +82,13 @@ alias lr='lein repl'
 GENYMOTION_APP="/usr/bin/genymotion"
 GENYMOTION_SHELL="/usr/bin/genymotion-shell"
 
+export NVM_DIR="/home/nicholas/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+function sc() {
+  if [[ $1 == "" ]]; then
+    cat ~/Dropbox/SCHEDULE
+  else
+    vim ~/Dropbox/SCHEDULE
+  fi
+}
