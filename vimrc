@@ -9,18 +9,27 @@ set rtp+=~/.vim/bundle/Vundle.vim
  " Genereal
  Plugin 'ctrlpvim/ctrlp.vim'
  Plugin 'Shougo/deoplete.nvim'
- " Plugin 'vim-airline/vim-airline'
+ Plugin 'vim-syntastic/syntastic'
+ Plugin 'vim-airline/vim-airline'
 
  " Commands
  Plugin 'tpope/vim-commentary'
  Plugin 'tpope/vim-surround'
  Plugin 'tpope/vim-repeat'
  Plugin 'tommcdo/vim-lion'
+ Plugin 'neovim/node-host'
 
  " Clojure
+ Plugin 'tpope/vim-salve'
+ Plugin 'tpope/vim-projectionist'
+ Plugin 'tpope/vim-dispatch'
  Plugin 'tpope/vim-fireplace'
  Plugin 'kien/rainbow_parentheses.vim'
  Plugin 'guns/vim-clojure-highlight'
+ Plugin 'snoe/nvim-parinfer.js'
+ Plugin 'clojure-vim/async-clj-omni'
+ Plugin 'snoe/clj-refactor.nvim'
+ Plugin 'venantius/vim-eastwood'
 
  " Javascript
  Plugin 'mxw/vim-jsx'
@@ -30,17 +39,21 @@ set rtp+=~/.vim/bundle/Vundle.vim
  Plugin 'altercation/vim-colors-solarized'
  Plugin 'scrooloose/nerdtree'
 
+ " Elm
+ Plugin 'pbogut/deoplete-elm'
+ Plugin 'ElmCast/elm-vim'
+
 call vundle#end()
 
 filetype plugin indent on
 
 syntax enable
-set background=dark
 
 set encoding=utf-8
 
 set relativenumber
 set nu
+set cursorline
 
 set undofile
 set undodir=~/.vim/undo
@@ -49,6 +62,9 @@ set undoreload=10000
 
 set background=dark
 colorscheme solarized
+set guifont=Sauce\ Code\ Powerline:h12
+
+set clipboard=unnamedplus
 
 "map escape key
 imap jj <Esc>
@@ -94,8 +110,11 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 set autoindent
 set smartindent
+
 autocmd FileType markdown set shiftwidth=4 tabstop=4
+autocmd FileType elm set shiftwidth=4 tabstop=4
 autocmd FileType c set cindent
+
 
 
 set modeline
@@ -153,6 +172,13 @@ let g:deoplete#lock_buffer_name_pattern = '\*ku\*'
 " Sets minimum char length of syntax keyword.
 let g:deoplete#min_syntax_length = 3
 
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+
+let g:clojure_align_multiline_strings = 1
+let g:clojure_special_indent_words = 'deftype,defrecord,reify,proxy,extend-type,extend-protocol,letfn'
+
+
 " <TAB>; completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -186,9 +212,14 @@ map <Leader>n :NERDTreeToggle<CR>
 set foldmethod=syntax
 set nofoldenable
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 "Syntastic settings
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "MRI for ruby
 let g:syntastic_ruby_checkers=['mri']
@@ -198,6 +229,8 @@ let g:syntastic_python_checkers=['pylint']
 let g:syntastic_javascript_checkers=['jshint']
 "CoffeLint for CoffeScript
 let g:syntastic_coffee_checkers=['coffeelint']
+"eastwood for Clojure
+let g:syntastic_clojure_checkers=['eastwood']
 "gcc for C
 let g:syntastic_c_checkers=['gcc']
 let g:syntastic_c_gcc="-std=gnu99"
@@ -270,3 +303,15 @@ let g:jsx_ext_required = 0
 
 "Shortcut for piggieback/firepalce with figwheel
 command PiggieFig Piggieback (figwheel-sidecar.repl-api/repl-env)
+
+" Sudo save
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" Elm
+
+let g:polyglot_disabled = ['elm']
+let g:elm_detailed_complete = 1
+let g:elm_format_autosave = 1
+let g:elm_syntastic_show_warnings = 1

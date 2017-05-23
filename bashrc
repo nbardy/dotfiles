@@ -61,26 +61,15 @@ PATH=$PATH:/opt/minizinc-1.6/bin
 alias ss='python3 -m http.server 8000'
 
 
-# Add grunt completion
-source ~/.grunt.bash
-
 # Disable ctrl-s for XOFF(listens to keystrokes and does nothing)
 stty ixany
 stty ixoff -ixon
-
-# {{{
-# Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
-# }}}
 
 alias lr='lein repl'
 
 GENYMOTION_APP="/usr/bin/genymotion"
 GENYMOTION_SHELL="/usr/bin/genymotion-shell"
+ANDROID_HOME="/home/nicholas/Android/Sdk"
 
 export NVM_DIR="/home/nicholas/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
