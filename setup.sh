@@ -8,7 +8,7 @@ function link_file() {
 	then 
 		echo "$2 exists - Not linking"
 	else
-		ln -s $1 $2
+		ln $1 $2
 		echo "Successfuly Linked $2"
 	fi
 }

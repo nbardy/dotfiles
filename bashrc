@@ -44,6 +44,7 @@ alias gnb='git checkout -b'
 
 alias gpo='git push origin master'
 alias gph='git push heroku master'
+alias gap='git add -p'
 
 
 
@@ -73,6 +74,7 @@ ANDROID_HOME="/home/nicholas/Android/Sdk"
 
 export NVM_DIR="/home/nicholas/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 function sc() {
   if [[ $1 == "" ]]; then

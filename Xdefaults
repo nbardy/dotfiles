@@ -23,8 +23,8 @@ URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           true
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Inconsolata:pixelsize=14
-URxvt*boldfont: xft:Inconsolata:style=bold:pixelsize=14
+URxvt*font: xft:Inconsolata:pixelsize=26
+URxvt*boldfont: xft:Inconsolata:style=bold:pixelsize=26
  
 ! Fix font space
 URxvt*letterSpace: -1
@@ -85,7 +85,7 @@ URxvt.depth: 32
 *color15: #fdf6e3
 
 !!Perl extensions
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,tabbed
+URxvt.perl-ext-common:      default,tabbed
 URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
 
