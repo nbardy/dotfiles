@@ -2,48 +2,48 @@ set nocompatible
 set t_Co=16
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
- call vundle#begin()
- Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
  " Genereal
- Plugin 'ctrlpvim/ctrlp.vim'
- Plugin 'Shougo/deoplete.nvim'
- Plugin 'vim-syntastic/syntastic'
- Plugin 'vim-airline/vim-airline'
+ Plug 'ctrlpvim/ctrlp.vim'
+ Plug 'Shougo/deoplete.nvim'
+ Plug 'vim-syntastic/syntastic'
+ Plug 'vim-airline/vim-airline'
+ Plug 'venantius/vim-eastwood'
 
  " Commands
- Plugin 'tpope/vim-commentary'
- Plugin 'tpope/vim-surround'
- Plugin 'tpope/vim-repeat'
- Plugin 'tommcdo/vim-lion'
- Plugin 'neovim/node-host'
+ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-surround'
+ Plug 'tpope/vim-repeat'
+ Plug 'tommcdo/vim-lion'
+ Plug 'neovim/node-host'
 
  " Clojure
- Plugin 'tpope/vim-salve'
- Plugin 'tpope/vim-projectionist'
- Plugin 'tpope/vim-dispatch'
- Plugin 'tpope/vim-fireplace'
- Plugin 'kien/rainbow_parentheses.vim'
- Plugin 'guns/vim-clojure-highlight'
- Plugin 'snoe/nvim-parinfer.js'
- Plugin 'clojure-vim/async-clj-omni'
- Plugin 'snoe/clj-refactor.nvim'
- Plugin 'venantius/vim-eastwood'
+ Plug 'tpope/vim-salve'
+ Plug 'tpope/vim-projectionist'
+ Plug 'tpope/vim-dispatch'
+ Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+ Plug 'kien/rainbow_parentheses.vim'
+ Plug 'guns/vim-clojure-highlight'
+ Plug 'clojure-vim/async-clj-omni'
+ Plug 'snoe/clj-refactor.nvim'
+ Plug 'eraserhd/parinfer-rust', {'do':
+        \  'cargo build --manifest-path=cparinfer/Cargo.toml --release',
+	\ 'for': 'clojure'}
 
  " Javascript
- Plugin 'mxw/vim-jsx'
- Plugin 'pangloss/vim-javascript'
+ Plug 'mxw/vim-jsx'
+ Plug 'pangloss/vim-javascript'
  
  " Color
- Plugin 'altercation/vim-colors-solarized'
- Plugin 'scrooloose/nerdtree'
+ Plug 'altercation/vim-colors-solarized'
+ Plug 'scrooloose/nerdtree'
 
  " Elm
- Plugin 'pbogut/deoplete-elm'
- Plugin 'ElmCast/elm-vim'
+ Plug 'pbogut/deoplete-elm'
+ Plug 'ElmCast/elm-vim'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
