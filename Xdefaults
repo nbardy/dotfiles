@@ -85,8 +85,10 @@ URxvt.depth: 32
 *color15: #fdf6e3
 
 !!Perl extensions
-URxvt.perl-ext-common:      default,tabbed
+URxvt.perl-ext-common:      default,tabbed,selection-to-clipboard
 URxvt.url-select.launcher:  chromium
 URxvt.url-select.underline: true
 
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped

@@ -43,6 +43,9 @@ call plug#begin('~/.vim/plugged')
  Plug 'pbogut/deoplete-elm'
  Plug 'ElmCast/elm-vim'
 
+ "GLSL
+ Plug 'tikhomirov/vim-glsl'
+
 call plug#end()
 
 filetype plugin indent on
