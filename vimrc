@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 
  " Genereal
  Plug 'ctrlpvim/ctrlp.vim'
- Plug 'Shougo/deoplete.nvim'
+ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  Plug 'vim-syntastic/syntastic'
  Plug 'vim-airline/vim-airline'
  Plug 'venantius/vim-eastwood'
@@ -28,12 +28,22 @@ call plug#begin('~/.vim/plugged')
  Plug 'clojure-vim/async-clj-omni'
  Plug 'snoe/clj-refactor.nvim'
  Plug 'eraserhd/parinfer-rust', {'do':
-        \  'cargo build --manifest-path=cparinfer/Cargo.toml --release',
-	\ 'for': 'clojure'}
+       \ 'cargo build --manifest-path=cparinfer/Cargo.toml --release',
+       \ 'for': 'clojure'}
 
  " Javascript
  Plug 'mxw/vim-jsx'
  Plug 'pangloss/vim-javascript'
+ Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern',
+       \ 'for': ['javascript', 'javascript.jsx']}
+ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx']}
+ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx']}
+
+ "Typescript Plugins
+ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+ Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
+ Plug 'leafgarland/typescript-vim'
+ Plug 'mhartington/deoplete-typescript'
  
  " Color
  Plug 'altercation/vim-colors-solarized'
@@ -87,18 +97,6 @@ set autoread
 " set timeout timeoutlen=5000 ttimeoutlen=100
 " set modelines=0
 
-"set auto complete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 """Support for RABL ruby json templating
 au BufRead,BufNewFile *.rabl setf ruby
@@ -160,17 +158,34 @@ autocmd BufWritePost,FileWritePost *.haml call HamlToHTML()
 
 let vimrplugin_screenplugin = 0
 
-"neocomplete
-" Launches neocomplcache automatically on vim startup.
 let g:deoplete#enable_at_startup = 1
-" Use smartcase.
+let g:deoplete#enable_ignore_case = 1
 let g:deoplete#enable_smart_case = 1
-" Use camel case completion.
-let g:deoplete#enable_camel_case_completion = 1
-" Use underscore completion.
-let g:deoplete#enable_underbar_completion = 1
-" buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder 
-let g:deoplete#lock_buffer_name_pattern = '\*ku\*'
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
+
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+let g:tern_request_timeout = 1
+let g:tern_request_timeout = 6000
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+let g:deoplete#sources = {}
+let g:deoplete#sources#tss#javascript_support = 1
+let g:tern_show_signature_in_pum = 1
+let g:tern_show_argument_hints = 'on_hold'
+
+set completeopt=longest,menuone,preview
+
+let g:tsuquyomi_javascript_support = 1
+let g:tsuquyomi_auto_open = 1
+let g:tsuquyomi_disable_quickfix = 1
 
 " Sets minimum char length of syntax keyword.
 let g:deoplete#min_syntax_length = 3
@@ -318,3 +333,15 @@ let g:polyglot_disabled = ['elm']
 let g:elm_detailed_complete = 1
 let g:elm_format_autosave = 1
 let g:elm_syntastic_show_warnings = 1
+
+"set auto complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1

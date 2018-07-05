@@ -61,6 +61,15 @@ PATH=$PATH:/opt/minizinc-1.6/bin
 # Simple static file server
 alias ss='python3 -m http.server 8000'
 
+alias lf='lein figwheel'
+
+
+# Add git branch to prompt
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+
 
 # Disable ctrl-s for XOFF(listens to keystrokes and does nothing)
 stty ixany
