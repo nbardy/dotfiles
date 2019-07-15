@@ -14,7 +14,7 @@ function link_file() {
 }
 
 link_file "vimrc" "$HOME/.config/nvim/init.vim" "Vim config"
-link_file "leader.vimrc" "$HOME/.config/nvim/leadrc.vimrc" "Vim leader config"
+link_file "leader.vimrc" "$HOME/.config/nvim/leader.vimrc" "Vim leader config"
 link_file "coc-settings.json" "$HOME/.config/nvim/coc-settings.json" "Vim coc config"
 link_file "gitconfig" "$HOME/.gitconfig" "Git config"
 link_file "gitignore" "$HOME/.gitignore" "Git Ignore"

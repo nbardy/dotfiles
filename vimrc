@@ -19,8 +19,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'neovim/node-host'
  Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-
- " Use release branch
+ " CoC Provides a language server interface
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
  " Clojure
