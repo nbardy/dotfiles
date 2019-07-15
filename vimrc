@@ -59,7 +59,7 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-# Standard improvements
+" Standard improvements
 set nobackup
 set nowritebackup
 set cmdheight=2

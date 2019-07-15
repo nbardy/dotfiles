@@ -98,4 +98,7 @@ gcloud-ml-ssh='gcloud compute ssh instance-4 --zone us-central1-c'
 
 export vz="visualization"
 
+alias wb='ssh nbardy@wbeast'
+
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
