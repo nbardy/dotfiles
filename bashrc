@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+# alias ls='ls -G'
 
 # Alias for movement
 alias ..='cd ..'
@@ -92,3 +92,10 @@ function sc() {
     vim ~/Dropbox/SCHEDULE
   fi
 }
+
+gcloud-ml-ssh='gcloud compute ssh instance-4 --zone us-central1-c'
+
+
+export vz="visualization"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

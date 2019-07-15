@@ -1,2 +1,4 @@
 *.swp
+**/**.tern-port
 .tern-port
+NOTES
