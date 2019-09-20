@@ -1,5 +1,5 @@
 " Toggle nerdtree
-map <Leader>n :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeFind<CR>
 
 " \e Exists terminal mode
 tnoremap <Leader>e <C-\><C-n>
@@ -46,4 +46,7 @@ nmap <leader>rn <Plug>(coc-rename)
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+map <leader>u :CocCommand git.copyUrl<cr>
+map <leader>b :CocCommand git.browserOpen<cr>
 
