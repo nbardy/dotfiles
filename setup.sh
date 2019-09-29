@@ -22,5 +22,3 @@ link_file "bashrc" "$HOME/.bashrc" "Bashrc"
 link_file "jshintrc" "$HOME/.jshintrc" "JSHint"
 link_file "xinitrc"  "$HOME/.xinitrc"  "Xinit"
 link_file "Xdefaults" "$HOME/.Xdefaults" "Xdefaults"
-
-echo "Awesome must be enabled manually"
