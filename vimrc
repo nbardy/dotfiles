@@ -60,6 +60,25 @@ call plug#begin('~/.vim/plugged')
  "GLSL
  Plug 'tikhomirov/vim-glsl'
 
+ " CoC Extensions
+ Plug 'neoclide/coc-eslint'
+ Plug 'neoclide/coc-prettier'
+ Plug 'neoclide/coc-git'
+ Plug 'neoclide/coc-snippets'
+ Plug 'neoclide/coc-lists'
+ Plug 'neoclide/coc-highlight'
+ Plug 'neoclide/coc-powershell'
+ Plug 'neoclide/coc-tsserver'
+ Plug 'neoclide/coc-yaml'
+ Plug 'neoclide/coc-powershell'
+ Plug 'neoclide/coc-css'
+ Plug 'neoclide/coc-python'
+ Plug 'neoclide/coc-go'
+ Plug 'neoclide/coc-json'
+ Plug 'neoclide/coc-css'
+ Plug 'neoclide/coc-tslint-plugin'
+ Plug 'neoclide/coc-svg'
+
 call plug#end()
 
 " Standard improvements
