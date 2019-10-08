@@ -72,7 +72,8 @@ call plug#begin('~/.vim/plugged')
  Plug 'neoclide/coc-yaml'
  Plug 'neoclide/coc-powershell'
  Plug 'neoclide/coc-css'
- Plug 'neoclide/coc-python'
+
+" Plug 'neoclide/coc-python'
  Plug 'neoclide/coc-go'
  Plug 'neoclide/coc-json'
  Plug 'neoclide/coc-css'

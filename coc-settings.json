@@ -31,6 +31,7 @@
   "python.formatting.provider": "black",
   "python.pythonPath": "/Users/nicholasbardy/.pyenv/shims/python",
   "python.venvPath": "~/.pyenv",
+  "python.jediEnabled: "false",
   "suggest.enablePreselect": true,
   "suggest.enablePreview": true,
   "suggest.minTriggerInputLength": 0,

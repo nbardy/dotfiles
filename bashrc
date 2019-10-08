@@ -1,2 +1,2 @@
-
-echo "HELLO"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
